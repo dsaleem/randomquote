@@ -3,6 +3,8 @@
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
+//Function getRandomQuote generator will get the random number using Math.random function and rounded up with the length of the quotes object , so for exmaple if the quotes object has 5 quotes the below function will generate any number between 0 to 5 , and get the object of this specific index number and store it in variable getquote
+
 function getRandomQuote()
 {
     var randomnumber = Math.floor( Math.random() * quotes.length );
@@ -13,11 +15,16 @@ function getRandomQuote()
 
 
 function printQuote() {
-    
+    // store the random object from Quotes in variable q
     var q = getRandomQuote();
+    // string concatenation on message variable
+    
     var message = '';
     message += '<p class=quote>' + q.quote + '</p>';
     message += '<p class=source>' + q.source 
+    
+    //to check optional citation or year property , if exist concatenate into the message variable 
+    
     if (q.citation != null)
         {
             message += '<span class = citation>' + q.citation + '</span>';
@@ -29,9 +36,7 @@ function printQuote() {
     
     message += '</p>';
     
-    document.getElementById('quote-box').innerHTML = message;
-    
-    
+    document.getElementById('quote-box').innerHTML = message;      
    
 }
 
